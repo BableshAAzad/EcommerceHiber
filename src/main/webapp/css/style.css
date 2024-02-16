@@ -1,6 +1,23 @@
 @charset "ISO-8859-1";
-body{
+
+body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+.custom-bg {
+	background-color: #FC9D33 !important;
+}
+.boderShadow{
+	box-shadow: 0.1rem 0.2rem 1rem #FC9D33;
+	border-radius: 0.5rem;
+}
+.iconRegister{
+	margin-bottom: 0.6rem;
+	margin-left: 3rem;
+}
+.iconRegister i{
+	font-size: 3rem;
+	position: absolute;
 }
