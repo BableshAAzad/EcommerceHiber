@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+.adminCard .card{
+	box-shadow: 0.1rem 0.1rem 0.7rem orange;
+	transition: all 0.5s ease;
+}
+.adminCard .card:hover{
+	background-color: #fc9d3370;
+	cursor: pointer;
+}
+.adminCard .card .card-body .container img{
+	width : 6rem
+}

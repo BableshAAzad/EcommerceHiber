@@ -1,3 +1,8 @@
+<%@page import="com.ecom.entities.User"%>
+<%
+User user1 = (User) session.getAttribute("current-user");
+%>
+
 <nav class="navbar navbar-expand-lg navbar-dark custom-bg">
   <a class="navbar-brand text-light" href="index.jsp">EcommerceHiber</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,12 +37,29 @@
       <button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit">Search</button>
     </form>
     <ul class="navbar-nav ml-auto">
-     <li class="nav-item">
-        <a class="nav-link text-light" href="login.jsp">Login</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link text-light" href="register.jsp">Register</a>
-      </li>
-    </ul>
+  <%
+    if(user1 == null){
+   %>
+    	 <li class="nav-item">
+         <a class="nav-link text-light" href="login.jsp">Login</a>
+       </li>
+        <li class="nav-item">
+         <a class="nav-link text-light" href="register.jsp">Register</a>
+       </li>
+     </ul>
+   <% 
+    }else{
+   %>
+    	 <li class="nav-item">
+           <a class="nav-link text-light" href="#!"><%= user1.getUserName() %></a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link text-light" href="LogoutServlet">Logout</a>
+         </li>
+     </ul>
+   <% 
+       }
+   %>
+    
   </div>
 </nav>
