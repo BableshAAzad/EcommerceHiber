@@ -1,3 +1,7 @@
+<%@page import="com.ecom.entities.Category"%>
+<%@page import="java.util.List"%>
+<%@page import="com.ecom.helper.FactoryProvider"%>
+<%@page import="com.ecom.dao.CategoryDao"%>
 <%@page import="com.ecom.entities.User"%>
 <%
 User user = (User) session.getAttribute("current-user");
@@ -155,16 +159,24 @@ if (user == null) {
           <input type="number" class="form-control" name="pQuantity" placeholder="Enter Product Quantity" required />
         </div>
         <!------------------------------ Product Category---------------------------------- -->
-        <div class="form-group">
-          <select name="catId" class="form-group">
-            <option value="Laptop">Laptop</option>
-            <option value="Mobile">Mobile</option>
-            <option value="EarPhone">EarPhone</option>
+        <%
+        CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
+		List<Category> list = categoryDao.getCategories();
+        %>
+        <div class="form-group" style="margin-bottom: 0">
+        <label for="proCat">Select Product Category : </label>
+          <select name="catId" class="form-group" id="proCat">
+          <%
+          for(Category c : list){
+          %>
+            <option value="<%=c.getCategoryId()%>"><%= c.getCategoryTitle() %></option>
+          <%
+          }
+          %>
           </select>
         </div>
         <div class="form-group">
-          <label for="pPicture">Select Picture of product</label>
-          <br>
+          <label for="pPicture">Select Picture of product : </label>
           <input type="file" name="pPic" id="pPicture" required />
         </div>
         <div class="container text-center">
