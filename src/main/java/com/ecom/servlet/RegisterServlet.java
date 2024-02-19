@@ -36,12 +36,12 @@ public class RegisterServlet extends HttpServlet {
 			Session hibernateSession =  FactoryProvider.getFactory().openSession();
 			Transaction tx = hibernateSession.beginTransaction();
 			int userId =(int) hibernateSession.save(user);
-			
+
 //			out.println("Successfully saved....!!!");
 //			out.println("<br>User id is : "+userId);
 			tx.commit();
 			hibernateSession.close();
-			
+
 			  HttpSession httpSession = req.getSession();
 			  httpSession.setAttribute("message", "Registration Successfull...!!! User Is is : "+userId);
 			  resp.sendRedirect("register.jsp");

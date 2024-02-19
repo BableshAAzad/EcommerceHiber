@@ -16,9 +16,9 @@ public class Category {
 	private int categoryId;
 	private String categoryTitle;
 	private String categoryDescription;
-	
+
 	@OneToMany(mappedBy = "category")
-	private List<Product> products = new ArrayList<Product>();
+	private List<Product> products = new ArrayList<>();
 
 	public Category() {
 		super();

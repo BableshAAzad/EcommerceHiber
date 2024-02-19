@@ -21,7 +21,7 @@ public class Product {
 	private int pQuantity;
 	@ManyToOne
 	private Category category;
-	
+
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -82,10 +82,18 @@ public class Product {
 	public void setpQuantity(int pQuantity) {
 		this.pQuantity = pQuantity;
 	}
-	
-	
 
-	
+
+
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 	@Override
 	public String toString() {
@@ -93,5 +101,5 @@ public class Product {
 				+ pPrice + ", pDiscount=" + pDiscount + ", pQuantity=" + pQuantity + "]";
 	}
 
-	
+
 }

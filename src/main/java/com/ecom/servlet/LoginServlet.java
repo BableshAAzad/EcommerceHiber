@@ -14,6 +14,7 @@ import com.ecom.entities.User;
 import com.ecom.helper.FactoryProvider;
 
 public class LoginServlet extends HttpServlet {
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 //				Admin user : admin.jsp
 					response.sendRedirect("admin.jsp");
 				} else if (user.getUserType().equals("normal")) {
-//				Normal user: normal.jsp 
+//				Normal user: normal.jsp
 					response.sendRedirect("normal.jsp");
 				}else {
 					out.println("<h1>We have not identify user type</h1>");

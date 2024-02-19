@@ -2,10 +2,10 @@ package com.ecom.dao;
 
 import java.util.List;
 
-import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.ecom.entities.Category;
 
@@ -31,7 +31,18 @@ public class CategoryDao {
 		 Query query = session.createQuery("from Category");
 		 List<Category> list = query.list();
 
-//		session.close();
+		session.close();
 		return list;
+	}
+	public Category getCategoryById(int cid) {
+		Category cat = null;
+		try {
+			Session session = this.factory.openSession();
+			cat = session.get(Category.class, cid);
+			session.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cat;
 	}
 }
