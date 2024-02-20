@@ -73,7 +73,9 @@
 							     <span class="discount-price">&#8377;<%=product.getpPrice() %></span>/- 
 							     <%=product.getpDiscount() %>% off
 							    </span></a>
-							    <a href="#" class="btn btn-warning m-1">Add To Card</a>
+							    <a href="#" class="btn btn-warning m-1" 
+							    onclick="add_to_cart(<%=product.getpId() %>,'<%=product.getpName() %>',<%=product.getPriceAfterAlpplyingDiscount() %>)">
+							    Add To Card</a>
 							</div>
 						</div>
 
