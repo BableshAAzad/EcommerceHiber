@@ -53,5 +53,6 @@
 		</div>
 	</div>
 	</section>
+	<%@include file="components/common_modal.jsp" %>
 </body>
 </html>

@@ -40,26 +40,29 @@ User user1 = (User) session.getAttribute("current-user");
   <%
     if(user1 == null){
    %>
-    	 <li class="nav-item">
+       <li class="nav-item">
          <a class="nav-link text-light" href="login.jsp">Login</a>
        </li>
         <li class="nav-item">
          <a class="nav-link text-light" href="register.jsp">Register</a>
        </li>
-     </ul>
    <% 
     }else{
    %>
     	 <li class="nav-item">
-           <a class="nav-link text-light" href="admin.jsp"><%= user1.getUserName() %></a>
+           <a class="nav-link text-light" href="<%= user1.getUserType().equals("admin") ? "admin.jsp" : "normal.jsp"%>"><%= user1.getUserName() %></a>
          </li>
          <li class="nav-item">
            <a class="nav-link text-light" href="LogoutServlet">Logout</a>
          </li>
-     </ul>
    <% 
        }
    %>
-    
+        <li class="nav-item" data-toggle="modal" data-target="#cart">
+           <div>
+             <i class="fa-solid fa-cart-plus"></i><span class="cart-items"></span>
+           </div>
+        </li>
+     </ul> 
   </div>
 </nav>

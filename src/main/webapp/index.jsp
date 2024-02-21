@@ -93,5 +93,6 @@
 		</div>
 	</section>
 </div>
+<%@include file="components/common_modal.jsp" %>
 </body>
 </html>

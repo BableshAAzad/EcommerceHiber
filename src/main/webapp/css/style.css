@@ -56,3 +56,71 @@ body {
 	font-size: 0.8rem;
 	font-style: italic;
 }
+
+.navbar-nav .nav-item div{
+	width : 3rem;
+	margin-right: 1rem;
+}
+.navbar-nav .nav-item div .fa-solid{
+	color: white;
+	margin-top: 0.8rem;
+	margin-left: 0.6rem;
+	font-size: 1.3rem;
+	position: relative;
+}
+.navbar-nav .nav-item div span{
+	color: white;
+    position: absolute;
+    border: 0.1rem solid white;
+    padding: 0.1rem 0.5rem;
+    border-radius: 50%;
+    font-weight: 600;
+}
+
+
+/* for toast-------------------------------------------------------------------------- */
+#toast {
+    visibility: hidden;
+    min-width: 300px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    background: #333333;
+    padding: 1.2rem;
+    color: white;
+    text-align: center;
+    z-index: 200;
+    font-size: 20px;
+    box-shadow: 0.2rem 0.2rem 2rem #fc008a;
+    border-radius: 0.5rem;
+}
+
+#toast.display {
+    visibility: visible;
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    form {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}

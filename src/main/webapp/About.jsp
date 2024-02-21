@@ -10,5 +10,6 @@
 <body>
 	<%@include file="components/navbar.jsp"%>
 	<h1 class="text-danger">About page</h1>
+	<%@include file="components/common_modal.jsp" %>
 </body>
 </html>

@@ -26,5 +26,6 @@ if (user == null) {
 <body>
 	<%@include file="components/navbar.jsp"%>
 	<h1>Welcome User panel</h1>
+	<%@include file="components/common_modal.jsp" %>
 </body>
 </html>

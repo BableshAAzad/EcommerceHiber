@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="com.ecom.helper.Helper"%>
 <%@page import="com.ecom.entities.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ecom.helper.FactoryProvider"%>
@@ -17,6 +19,14 @@ if (user == null) {
 	}
 }
 %>
+
+ <%
+        CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
+		List<Category> list = categoryDao.getCategories();
+		
+		// getting count 
+		Map<String, Long> m = Helper.getCouts(FactoryProvider.getFactory());
+ %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -44,7 +54,7 @@ if (user == null) {
 	         <div class="container">
 	           <img alt="Users" src="img/users.png" class="img-fluid rounded-circle" />
 	         </div>
-	         <h2>4753</h2>
+	         <h2><%=m.get("userCount") %></h2>
 	          <h2 class="text-uppercase text-muted">Users</h2>
 	         </div>
 	       </div>
@@ -55,7 +65,7 @@ if (user == null) {
 	            <div class="container">
 	               <img alt="Catagories" src="img/menu.png" class="img-fluid" />
 	             </div>
-	           <h2>853</h2>    
+	           <h2><%=list.size() %></h2>    
 	           <h2 class="text-uppercase text-muted">Catagories</h2>
 	         </div>
 	       </div>
@@ -66,7 +76,7 @@ if (user == null) {
 	             <div class="container">
 	                 <img alt="Products" src="img/hand.png" class="img-fluid" />
 	               </div>
-	           <h2>538443</h2>
+	           <h2><%=m.get("productCount") %></h2>
 	           <h2 class="text-uppercase text-muted">Products</h2>
 	         </div>
 	       </div>
@@ -158,11 +168,9 @@ if (user == null) {
         <div class="form-group">
           <input type="number" class="form-control" name="pQuantity" placeholder="Enter Product Quantity" required />
         </div>
+        
         <!------------------------------ Product Category---------------------------------- -->
-        <%
-        CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
-		List<Category> list = categoryDao.getCategories();
-        %>
+        
         <div class="form-group" style="margin-bottom: 0">
         <label for="proCat">Select Product Category : </label>
           <select name="catId" class="form-group" id="proCat">
@@ -189,6 +197,6 @@ if (user == null) {
   </div>
 </div>
 	
-	
+<%@include file="components/common_modal.jsp" %>	
 </body>
 </html>
